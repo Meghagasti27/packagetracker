@@ -36,7 +36,7 @@ public class PackageEntity {
     	this.id=id;
     	}
     
-    public String getTracking() {
+    public String getTrackingId() {
     	return trackingId;
     }
     
