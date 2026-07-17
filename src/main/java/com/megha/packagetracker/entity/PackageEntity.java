@@ -1,6 +1,12 @@
 package com.megha.packagetracker.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="packages")
 public class PackageEntity {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String trackingId;
     private String courierName;
