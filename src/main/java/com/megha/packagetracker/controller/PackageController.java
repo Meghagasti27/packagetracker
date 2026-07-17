@@ -1,8 +1,9 @@
 package com.megha.packagetracker.controller;
-
 import com.megha.packagetracker.entity.PackageEntity;
 import com.megha.packagetracker.service.PackageService;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -13,8 +14,13 @@ public class PackageController {
 	public PackageController(PackageService packageService) {
 		this.packageService=packageService;
 	}
+	@GetMapping("/packages")
+	public List<PackageEntity> getPackages() {
+	    return packageService.getAllPackages();
+	}
+
 	@GetMapping("/packages/{id}")
 	public PackageEntity getPackageById(@PathVariable Long id) {
-		return packageService.getPackageById(id);
+	    return packageService.getPackageById(id);
 	}
 }
