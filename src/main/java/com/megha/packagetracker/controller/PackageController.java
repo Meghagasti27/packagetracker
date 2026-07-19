@@ -1,6 +1,7 @@
 package com.megha.packagetracker.controller;
 
 import java.util.List;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -56,7 +57,7 @@ public class PackageController {
     
 
     @PostMapping
-    public PackageEntity createPackage(@RequestBody PackageEntity packageEntity) {
+    public PackageEntity createPackage(@Valid @RequestBody PackageEntity packageEntity) {
         return packageService.savePackage(packageEntity);
     }
     @PostMapping("/test")

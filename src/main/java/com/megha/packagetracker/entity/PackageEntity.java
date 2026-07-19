@@ -1,6 +1,7 @@
 package com.megha.packagetracker.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="packages")
@@ -8,11 +9,21 @@ public class PackageEntity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@NotBlank(message = "Tracking ID is required")
 	private String trackingId;
-    private String courierName;
-    private String sender;
-    private String receiver;
-    private String status;
+
+	@NotBlank(message = "Courier Name is required")
+	private String courierName;
+
+	@NotBlank(message = "Sender is required")
+	private String sender;
+
+	@NotBlank(message = "Receiver is required")
+	private String receiver;
+
+	@NotBlank(message = "Status is required")
+	private String status;
     
     public PackageEntity() {
     	
@@ -27,6 +38,9 @@ public class PackageEntity {
            this.receiver = receiver;
            this.status = status;
     }
+
+
+
     
     public Long getId() {
     	return id;
