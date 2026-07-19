@@ -15,7 +15,38 @@ public class PackageService {
 	}
 	
 	public PackageEntity savePackage(PackageEntity packageEntity) {
-		return packageRepository.save(packageEntity);
+//		return packageRepository.save(packageEntity);
+		System.out.println("Before Save");
+
+	    PackageEntity savedPackage = packageRepository.save(packageEntity);
+
+	    System.out.println("After Save");
+
+	    return savedPackage;
+		
+	}
+	
+	public PackageEntity updatePackage(Long id, PackageEntity updatedPackage) {
+		PackageEntity existingPackage = packageRepository.findById(id).orElse(null);
+		if(existingPackage==null) {
+			return null;
+		}
+		existingPackage.setTrackingId(updatedPackage.getTrackingId());
+		existingPackage.setCourierName(updatedPackage.getCourierName());
+		existingPackage.setSender(updatedPackage.getSender());
+	    existingPackage.setReceiver(updatedPackage.getReceiver());
+	    existingPackage.setStatus(updatedPackage.getStatus());
+	    
+	    return packageRepository.save(existingPackage);
+	}
+	
+	public boolean deletePackage(Long id) {
+		if(!packageRepository.existsById(id)) {
+			
+			return false;
+		}
+		packageRepository.deleteById(id);
+		return true;
 	}
 	
 	public List<PackageEntity> getAllPackages() {
