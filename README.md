@@ -70,6 +70,18 @@ src/main/java/com/megha/packagetracker
 └── PackagetrackerApplication
 ```
 
+## Database
+
+Current Entity:
+
+- Package
+  - id
+  - trackingId
+  - courierName
+  - sender
+  - receiver
+  - status
+
 ## Learning Objectives
 
 This project is being built to gain hands-on experience with:
@@ -80,16 +92,6 @@ This project is being built to gain hands-on experience with:
 - JPA & Hibernate
 - Backend Architecture
 - Full Stack Application Development
-
-## Future Enhancements
-
-- User Authentication
-- Courier API Integration
-- Real-Time Tracking Updates
-- Email Notifications
-- Delivery Analytics Dashboard
-- Admin Panel
-- Mobile Responsive UI
 
 ## Status
 
